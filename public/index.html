@@ -15,8 +15,8 @@
                 <a href="#header">
                     <img id="logoCanva" 
                     src="Immagini/LogoCanvaAV_1.png" 
-                    width="100"
-                    height="100"
+                    width="100vh"
+                    height="100vh"
                     alt="logo canva" 
                     title="logo canva" />
                 </a>
@@ -32,7 +32,7 @@
         <header class="header" id="header">
             <h1>Meteo Vaccarone</h1> 
             <h2>Città di Modena</h2>
-            <time><h3 id="dataCompleta">data di oggi</h3></time>
+            <time id="dataCompleta">data di oggi</time>
             <p id="didascalia">Walton Lighthouse, Santa Cruz, CA</p>
 
         </header>
@@ -40,376 +40,24 @@
         <section class="previsioni" id="previsioni">
             <h2 class="prev-title">Cerca previsioni per</h2>
             <div class="prev-menu">
-                <button class="button" id="oggi">Oggi</button> 
-                <button class="button" id="domani">Domani</button>  
-                <button class="button" id="dopodomani">Dopodomani</button> 
+                <button class="button" id="giorno0">Oggi</button> 
+                <button class="button" id="giorno1">Domani</button>  
+                <button class="button" id="giorno2">Dopodomani</button> 
+                <button class="button" id="giorno3">Giorno 3</button> 
+                <button class="button" id="giorno4">Giorno 4</button> 
                 <!--quando passi sopra col mouse vedi la data-->
             </div>
             <div>
-                <ul class="ore">
-                    <!--questi li sono tutti uguali, indicherà la previsione per un'ora diversa-->
-                    <!--ogni elemento inizia con "ore", seguito da due numeri. Il primo numero indica l'ora del giorno.
-                    Il secondo indica il numero del dato, il primo dato è la condizione del tempo, il secondo la temperatura, il terzo l'umidità, e il quarto le precipitazioni-->
-                    <li id="a1">
-                        <img id="fotoMeteo0"
-                             src="Immagini/fotoQuadrata.png"
-                             alt="Foto del meteo"
-                             title="Foto del meteo"
-                             width=100px
-                              > 
-                              <p id="orario">0</p>
-                        <div id="ore-testo">
-                            <p id="ore0stato">ciao</p>
-                            <p id="ore0temperatura">ciao</p>  
-                            <p id="ore0umidità">ciao</p>  
-                            <p id="ore0pioggia">ciao</p>  
-                        </div>    
+                <ul id="listaOre" class="ore">
+                    <li class="box-oraria header-row">
+                        <p class="orario">Ora</p>
+                        <div class="dato stato">Stato</div>
+                        <p>Temperatura</p>
+                        <p>Umidità</p>
+                        <p>Vento</p>
+                        <p>Precipitazioni</p>
                     </li>
-                    <li id="a1">
-                        <img id="fotoMeteo1"
-                        src="Immagini/fotoQuadrata.png"
-                        alt="Foto di Alessandro Vaccari"
-                        title="Foto di Alessandro Vaccari"
-                        width=100px
-                         > 
-                         <p id="orario">1</p>
-                       <div id="ore-testo">
-                           <p id="ore1stato">ciao</p>
-                           <p id="ore1temperatura">ciao</p>  
-                           <p id="ore1umidità">ciao</p>  
-                           <p id="ore1pioggia">ciao</p>  
-                       </div>  
-                   </li>
-                    <li id="a1">
-                        <img id="fotoMeteo2"
-                             src="Immagini/fotoQuadrata.png"
-                             alt="Foto del meteo"
-                             title="Foto del meteo"
-                             width=100px
-                              > 
-                              <p id="orario">2</p>
-                        <div id="ore-testo">
-                            <p id="ore2stato">ciao</p>
-                            <p id="ore2temperatura">ciao</p>  
-                            <p id="ore2umidità">ciao</p>  
-                            <p id="ore2pioggia">ciao</p>  
-                        </div>    
-                    </li>
-                    <li id="a1">
-                        <img id="fotoMeteo3"
-                             src="Immagini/fotoQuadrata.png"
-                             alt="Foto del meteo"
-                             title="Foto del meteo"
-                             width=100px
-                              > 
-                              <p id="orario">3</p>
-                        <div id="ore-testo">
-                            <p id="ore3stato">ciao</p>
-                            <p id="ore3temperatura">ciao</p>  
-                            <p id="ore3umidità">ciao</p>  
-                            <p id="ore3pioggia">ciao</p>  
-                        </div>    
-                    </li>
-                    <li id="a1">
-                        <img id="fotoMeteo4"
-                             src="Immagini/fotoQuadrata.png"
-                             alt="Foto del meteo"
-                             title="Foto del meteo"
-                             width=100px
-                              > 
-                              <p id="orario">4</p>
-                        <div id="ore-testo">
-                            <p id="ore4stato">ciao</p>
-                            <p id="ore4temperatura">ciao</p>  
-                            <p id="ore4umidità">ciao</p>  
-                            <p id="ore4pioggia">ciao</p>  
-                        </div>    
-                    </li>
-                    <li id="a1">
-                        <img id="fotoMeteo5"
-                             src="Immagini/fotoQuadrata.png"
-                             alt="Foto del meteo"
-                             title="Foto del meteo"
-                             width=100px
-                              > 
-                              <p id="orario">5</p>
-                        <div id="ore-testo">
-                            <p id="ore5stato">ciao</p>
-                            <p id="ore5temperatura">ciao</p>  
-                            <p id="ore5umidità">ciao</p>  
-                            <p id="ore5pioggia">ciao</p>  
-                        </div>    
-                    </li>
-                    <li id="a1">
-                        <img id="fotoMeteo6"
-                             src="Immagini/fotoQuadrata.png"
-                             alt="Foto del meteo"
-                             title="Foto del meteo"
-                             width=100px
-                              > 
-                              <p id="orario">6</p>
-                        <div id="ore-testo">
-                            <p id="ore6stato">ciao</p>
-                            <p id="ore6temperatura">ciao</p>  
-                            <p id="ore6umidità">ciao</p>  
-                            <p id="ore6pioggia">ciao</p>  
-                        </div>    
-                    </li>
-                    <li id="a1">
-                        <img id="fotoMeteo7"
-                             src="Immagini/fotoQuadrata.png"
-                             alt="Foto del meteo"
-                             title="Foto del meteo"
-                             width=100px
-                              > 
-                              <p id="orario">7</p>
-                        <div id="ore-testo">
-                            <p id="ore7stato">ciao</p>
-                            <p id="ore7temperatura">ciao</p>  
-                            <p id="ore7umidità">ciao</p>  
-                            <p id="ore7pioggia">ciao</p>  
-                        </div>    
-                    </li>
-                    <li id="a1">
-                        <img id="fotoMeteo8"
-                             src="Immagini/fotoQuadrata.png"
-                             alt="Foto del meteo"
-                             title="Foto del meteo"
-                             width=100px
-                              > 
-                              <p id="orario">8</p>
-                        <div id="ore-testo">
-                            <p id="ore8stato">ciao</p>
-                            <p id="ore8temperatura">ciao</p>  
-                            <p id="ore8umidità">ciao</p>  
-                            <p id="ore8pioggia">ciao</p>  
-                        </div>    
-                    </li>
-                    <li id="a1">
-                        <img id="fotoMeteo9"
-                             src="Immagini/fotoQuadrata.png"
-                             alt="Foto del meteo"
-                             title="Foto del meteo"
-                             width=100px
-                              > 
-                              <p id="orario">9</p>
-                        <div id="ore-testo">
-                            <p id="ore9stato">ciao</p>
-                            <p id="ore9temperatura">ciao</p>  
-                            <p id="ore9umidità">ciao</p>  
-                            <p id="ore9pioggia">ciao</p>  
-                        </div>    
-                    </li>
-                    <li id="a1">
-                        <img id="fotoMeteo10"
-                             src="Immagini/fotoQuadrata.png"
-                             alt="Foto del meteo"
-                             title="Foto del meteo"
-                             width=100px
-                              > 
-                              <p id="orario">10</p>
-                        <div id="ore-testo">
-                            <p id="ore10stato">ciao</p>
-                            <p id="ore10temperatura">ciao</p>  
-                            <p id="ore10umidità">ciao</p>  
-                            <p id="ore10pioggia">ciao</p>  
-                        </div>    
-                    </li>
-                    <li id="a1">
-                        <img id="fotoMeteo11"
-                             src="Immagini/fotoQuadrata.png"
-                             alt="Foto del meteo"
-                             title="Foto del meteo"
-                             width=100px
-                              > 
-                              <p id="orario">11</p>
-                        <div id="ore-testo">
-                            <p id="ore11stato">ciao</p>
-                            <p id="ore11temperatura">ciao</p>  
-                            <p id="ore11umidità">ciao</p>  
-                            <p id="ore11pioggia">ciao</p>  
-                        </div>    
-                    </li>
-                    <li id="a1">
-                        <img id="fotoMeteo12"
-                             src="Immagini/fotoQuadrata.png"
-                             alt="Foto del meteo"
-                             title="Foto del meteo"
-                             width=100px
-                              > 
-                              <p id="orario">12</p>
-                        <div id="ore-testo">
-                            <p id="ore12stato">ciao</p>
-                            <p id="ore12temperatura">ciao</p>  
-                            <p id="ore12umidità">ciao</p>  
-                            <p id="ore12pioggia">ciao</p>  
-                        </div>    
-                    </li>
-                    <li id="a1">
-                        <img id="fotoMeteo13"
-                             src="Immagini/fotoQuadrata.png"
-                             alt="Foto del meteo"
-                             title="Foto del meteo"
-                             width=100px
-                              > 
-                              <p id="orario">13</p>
-                        <div id="ore-testo">
-                            <p id="ore13stato">ciao</p>
-                            <p id="ore13temperatura">ciao</p>  
-                            <p id="ore13umidità">ciao</p>  
-                            <p id="ore13pioggia">ciao</p>  
-                        </div>    
-                    </li>
-                    <li id="a1">
-                        <img id="fotoMeteo14"
-                             src="Immagini/fotoQuadrata.png"
-                             alt="Foto del meteo"
-                             title="Foto del meteo"
-                             width=100px
-                              > 
-                              <p id="orario">14</p>
-                        <div id="ore-testo">
-                            <p id="ore14stato">ciao</p>
-                            <p id="ore14temperatura">ciao</p>  
-                            <p id="ore14umidità">ciao</p>  
-                            <p id="ore14pioggia">ciao</p>  
-                        </div>    
-                    </li>
-                    <li id="a1">
-                        <img id="fotoMeteo15"
-                             src="Immagini/fotoQuadrata.png"
-                             alt="Foto del meteo"
-                             title="Foto del meteo"
-                             width=100px
-                              > 
-                              <p id="orario">15</p>
-                        <div id="ore-testo">
-                            <p id="ore15stato">ciao</p>
-                            <p id="ore15temperatura">ciao</p>  
-                            <p id="ore15umidità">ciao</p>  
-                            <p id="ore15pioggia">ciao</p>  
-                        </div>    
-                    </li>
-                    <li id="a1">
-                        <img id="fotoMeteo16"
-                             src="Immagini/fotoQuadrata.png"
-                             alt="Foto del meteo"
-                             title="Foto del meteo"
-                             width=100px
-                              > 
-                              <p id="orario">16</p>
-                        <div id="ore-testo">
-                            <p id="ore16stato">ciao</p>
-                            <p id="ore16temperatura">ciao</p>  
-                            <p id="ore16umidità">ciao</p>  
-                            <p id="ore16pioggia">ciao</p>  
-                        </div>    
-                    </li>
-                    <li id="a1">
-                        <img id="fotoMeteo17"
-                             src="Immagini/fotoQuadrata.png"
-                             alt="Foto del meteo"
-                             title="Foto del meteo"
-                             width=100px
-                              > 
-                              <p id="orario">17</p>
-                        <div id="ore-testo">
-                            <p id="ore17stato">ciao</p>
-                            <p id="ore17temperatura">ciao</p>  
-                            <p id="ore17umidità">ciao</p>  
-                            <p id="ore17pioggia">ciao</p>  
-                        </div>    
-                    </li>
-                    <li id="a1">
-                        <img id="fotoMeteo18"
-                             src="Immagini/fotoQuadrata.png"
-                             alt="Foto del meteo"
-                             title="Foto del meteo"
-                             width=100px
-                              > 
-                              <p id="orario">18</p>
-                        <div id="ore-testo">
-                            <p id="ore18stato">ciao</p>
-                            <p id="ore18temperatura">ciao</p>  
-                            <p id="ore18umidità">ciao</p>  
-                            <p id="ore18pioggia">ciao</p>  
-                        </div>    
-                    </li>
-                    <li id="a1">
-                        <img id="fotoMeteo19"
-                             src="Immagini/fotoQuadrata.png"
-                             alt="Foto del meteo"
-                             title="Foto del meteo"
-                             width=100px
-                              > 
-                              <p id="orario">19</p>
-                        <div id="ore-testo">
-                            <p id="ore19stato">ciao</p>
-                            <p id="ore19temperatura">ciao</p>  
-                            <p id="ore19umidità">ciao</p>  
-                            <p id="ore19pioggia">ciao</p>  
-                        </div>    
-                    </li>
-                    <li id="a1">
-                        <img id="fotoMeteo20"
-                             src="Immagini/fotoQuadrata.png"
-                             alt="Foto del meteo"
-                             title="Foto del meteo"
-                             width=100px
-                              > 
-                              <p id="orario">20</p>
-                        <div id="ore-testo">
-                            <p id="ore20stato">ciao</p>
-                            <p id="ore20temperatura">ciao</p>  
-                            <p id="ore20umidità">ciao</p>  
-                            <p id="ore20pioggia">ciao</p>  
-                        </div>    
-                    </li>
-                    <li id="a1">
-                        <img id="fotoMeteo21"
-                             src="Immagini/fotoQuadrata.png"
-                             alt="Foto del meteo"
-                             title="Foto del meteo"
-                             width=100px
-                              > 
-                              <p id="orario">21</p>
-                        <div id="ore-testo">
-                            <p id="ore21stato">ciao</p>
-                            <p id="ore21temperatura">ciao</p>  
-                            <p id="ore21umidità">ciao</p>  
-                            <p id="ore21pioggia">ciao</p>  
-                        </div>    
-                    </li>
-                    <li id="a1">
-                        <img id="fotoMeteo22"
-                             src="Immagini/fotoQuadrata.png"
-                             alt="Foto del meteo"
-                             title="Foto del meteo"
-                             width=100px
-                              > 
-                              <p id="orario">22</p>
-                        <div id="ore-testo">
-                            <p id="ore22stato">ciao</p>
-                            <p id="ore22temperatura">ciao</p>  
-                            <p id="ore22umidità">ciao</p>  
-                            <p id="ore22pioggia">ciao</p>  
-                        </div>    
-                    </li>
-                    <li id="a1">
-                        <img id="fotoMeteo23"
-                             src="Immagini/fotoQuadrata.png"
-                             alt="Foto del meteo"
-                             title="Foto del meteo"
-                             width=100px
-                              > 
-                              <p id="orario">23</p>
-                        <div id="ore-testo">
-                            <p id="ore23stato">ciao</p>
-                            <p id="ore23temperatura">ciao</p>  
-                            <p id="ore23umidità">ciao</p>  
-                            <p id="ore23pioggia">ciao</p>  
-                        </div>    
-                    </li>
+                <!-- Le 24 box orarie saranno inserite via JS sotto questa riga -->
                 </ul>
             </div>
 

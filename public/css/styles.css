@@ -22,6 +22,7 @@ body{
     top:0;
     position: sticky; /* il menu rimane sempre fissato in alto*/
     z-index: 5; /*uso z-index così lo metto un layer sopra, altrimenti la disascalia del faro andrebbe sopra il menu*/
+    height: 12vh;
    
    }
 
@@ -52,8 +53,15 @@ ul.lista{
 #logoCanva{
    justify-content: left;
    filter: invert(100%); /* inverte i colori dell'immagine, da nero a bianco*/
+   width: 9vh;
+   height: auto;
 }
 
+
+#dataCompleta {
+    font-size: 1.5rem; 
+    font-weight: bold;
+}
 
 
 
@@ -130,56 +138,141 @@ button:focus{
 }
 
 
-#orario{ /*il numerino che indica l'ora della previsione*/
-    font-size: 2rem;
-    position: absolute;
-    
+
+
+/*stile degli header, ovvero la box con Stato, Temperatura, ecc*/
+.header-row {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  width: 90vw;
+  height: 7vh;
+  padding: 1px 10px;
+  margin: 0.5vh 0;
+  background-color: rgb(178, 187, 254);
+  border: 2px solid rgb(86, 111, 162);
+  border-radius: 15px;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+  gap: 15px; /* distanza tra colonne */
+  font-weight: bold;
 }
 
-.ore li{ /*item della lista ore*/
-    border: 2px solid rgb(86, 111, 162);  
-    background-color: rgb(178,187,254);
-    margin-top: 40px;
-    margin-bottom: 40px;
-    margin-left:3vw;
-    margin-right: 3vh;
-    align-items: center;
-    display: inline-block; /* metto inline-block anzichè inline, nel blocco interno, gli elementi della lista, così i margini degli elementi della lista e i margini della lista in sè non collapsano*/
-    padding-top: 10px;
-    padding-bottom: 10px;
-    padding-left: 10px; /*distanza tra l'orario del meteo e la box*/
-    text-align:start;
-    width: 25vw;
-    height: 100px;
-    border-radius: 15px;
-    
+/*
+.header-row .orario,
+.header-row .dato.stato,
+.header-row > p {
+  text-align: center;
+  padding: 10px 0;
+  flex-basis: unset;
+  min-width: unset;
+}
+*/
+
+
+
+
+
+
+
+
+/* Lista oraria */
+ul.ore {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 60px;  /* distanza dai i selettori del giorno*/
+  padding: 0;
+  list-style: none;
 }
 
-ul.ore{
-    margin-top: 60px; /*distanza dal menu oggi/domani/dopodomani*/
-    
+/* Singola box oraria */
+.box-oraria {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  width: 90vw;
+  height: 7vh;
+  padding: 1px 10px;
+  margin: 0.5vh 0;
+  background-color: rgb(178, 187, 254);
+  border: 2px solid rgb(86, 111, 162);
+  border-radius: 15px;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+  gap: 15px; /* distanza tra colonne */
 }
 
-/*seleziono tutti gli elementi i cui id iniziano con "fotoMeteo", mi è utile visto che si chiamano tutti così ma con numeri diversi*/
-[id^="fotoMeteo"]{
-    margin-left: 20px;
-    margin-right: 10px;
-    
+/* Orario (es. 12:00) */
+.orario {
+  font-size: 3rem;
+  min-width: 60px;
+  margin: 0 10px 0 0;
+  padding-left: 0;
 }
 
-#a1{ /*id di ogni item della lista ore*/
-    display: flex;
-    float: left;
-    
+/* Immagine meteo */
+.foto-meteo {
+  width: 32px;  /* circa 2rem */
+  height: auto;
+
 }
 
-p{
-    /*non riuscivo a togliere lo spazio tra i dati del meteo nella box, c'era un margine verticale che non volevo
-    quindi ho fatto ispeziona, e selezionando gli elementi ciao, ho visto che c'era un margine di 16px (1em),
-    chiamato margin-block-start e margin-block-end, quindi ho copiato dalla sezione styles le righe e le ho messe con un valore 0. */
-    margin-block-start: 0;
-    margin-block-end: 0; 
+/* Contenitore dei dati meteo (colonne verticali) */
+.dati-meteo {
+  display: flex;
+  flex-grow: 1;
+  justify-content: space-around;  /* spazio tra le colonne. space-around lascia ai lati la metà dello spazio tra un elemento e l'altro */
+  gap: 10px;
+  min-width: 90px;  /* per evitare che si allarghi troppo */
 }
+
+/* Ogni singolo blocco dati (etichetta sopra + valore sotto) */
+.dato {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 20vw;
+}
+
+/* Etichette come "Stato", "Temperatura"... */
+.dato .label {
+  font-size: 1rem;  /* da 1rem a 0.85rem */
+  font-weight: bold;
+  margin-bottom: 4px;
+}
+
+/* Valore ("Sereno", "22°C", ecc) */
+.dato p:not(.label) {
+  font-size: 0.85rem;  /* da 1rem a 0.85rem */
+  margin: 0;
+  white-space: nowrap; /* evita che i testi vadano a capo e mantieni la singola linea */
+  overflow: hidden;    /* nasconde l'eccesso se troppo lungo */
+  text-overflow: ellipsis; /* mostra ... se è troppo lungo */
+}
+
+.dato.stato {
+  display: flex;
+  align-items: center;
+  min-width: 18vw; /* fissa larghezza per colonna stato */
+  gap: 8px;        /* spazio tra icona e testo */
+  font-size: 1rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.box-oraria > p {
+  flex-basis: 15vw;   /* larghezza fissa per colonna */
+  font-size: 0.85rem;
+  margin: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  text-align: center;
+}
+
+
+
+
 
 
 .chi-siamo{
@@ -270,20 +363,23 @@ p{
 /* usiamo un approccio pc first */
 /*inserisco solo le cose da cambiare allo scattare della grandezza dello schermo*/
 @media (max-width: 1320px){
-    .ore li{width: 35vw; margin-top: 30px; margin-bottom: 30px;}
+    .ore li{width: 90vw; margin: 0.4vh 3.5vw 0.4vh auto;}  /*top right bottom left*/
     .button{width:11rem; font-size: 1.5rem;}
     .Creatore{width: 26vw;height: 26vw;}
+    .menu{height: 8vh;}
+    .menu a{font-size: 3rem;}
+    #logoCanva{width: 5vh;}
 
 }
 
 /*inserisco anche immagini più piccole per risparmiare spazio*/
 @media (max-width: 750px) {
-    .menu{ max-height: 30vh;} /*il menu non può occupare più del 30% dello schermo, che sarebbe già tanto*/
+    .menu{ max-height: 6vh;} /*il menu non può occupare più del 30% dello schermo, che sarebbe già tanto*/
     .menu a{font-size: 1.5rem;}
-    #logoCanva{width: auto; height: 60px;}
+    #logoCanva{width: auto; height: 8vh;}
     .header{background-image: url("../Immagini/faroMedio.jpg");} /*sotto una larghezza di 750px infatti si vede che la qualità del faro diminuisce perchè metto un'immagine più piccola*/
     .previsioni{background-image: url("../Immagini/sfondo2piccolo.png");}
-    .ore li{width: 85%; margin-top: 20px; margin-bottom: 20px;}
+    .ore li{width: 90vw; margin: 0.1vh auto;}
     .button{width: 7rem; font-size: 1rem;}
     .chi-siamo-box{flex-direction: column;}
     .Creatore{width: 20vw; height: 20vw; margin-bottom: 20px;}
